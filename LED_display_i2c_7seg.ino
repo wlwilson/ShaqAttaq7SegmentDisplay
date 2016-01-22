@@ -44,9 +44,6 @@ int D[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 char * outSt = "";
 void setup() {
   
-  //Serial.begin(9600);  // Used to type in characters
-//  lcd.begin(16,2);   // initialize the lcd for 16 chars 2 lines, turn on backlight
-  // put your setup code here, to run once
   pinMode(DX0pin, INPUT);
   pinMode(DX1pin, INPUT);
   pinMode(DX2pin, INPUT);
@@ -65,7 +62,7 @@ void setup() {
 }
 
 void loop() {
-  // if AX4pin = LOW, latch DX0-DX7
+  // if AX4pin = HIGH, latch DX0-DX7
   clk = digitalRead(AX4pin);
   //if(clk != lastclk){
     if(clk==HIGH){
@@ -96,7 +93,7 @@ void loop() {
     //matrix1.clear();
     //matrix2.clear();
     //matrix3.clear();
-    matrix4.clear();
+    //matrix4.clear();
   }
   else{
     matrix1.writeDigitNum(0,D[0],dots);
@@ -116,7 +113,7 @@ void loop() {
     matrix4.writeDigitNum(3,D[11],dots);
   }
   //if(!(D[0]>=10 && D[1]>=10 && D[2]>=10)){// || (D[0]<10 && D[1]<10 && D[2]<10))
-    matrix1.writeDisplay();
+  matrix1.writeDisplay();
   //}
   matrix2.writeDisplay();
   matrix3.writeDisplay();
